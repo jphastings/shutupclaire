@@ -1,0 +1,27 @@
+body {
+  background-color: hsl(<%= start %>, 100%, 50%);
+  color: hsl(<%= (start + 180) % 360 %>, 100%, 50%);
+
+  -webkit-animation: color_change 180s infinite;
+  -moz-animation: color_change 180s infinite;
+  -ms-animation: color_change 180s infinite;
+  -o-animation: color_change 180s infinite;
+  animation: color_change 180s infinite;
+
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -ms-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+<% ['webkit', 'moz', 'ms', 'o', nil].each do |browser| %>
+  <%= ['@', browser, 'keyframes'].compact.join('-') %> color_change {
+    <% [0, 25, 50, 75, 100].each do |n| %>
+      <%= n %>% {
+        background-color: hsl(<%= (start + (n * 3.60)).round % 360 %>, 100%, 50%);
+        color: hsl(<%= (start + 180 + (n * 3.60)).round % 360 %>, 100%, 50%);
+      }
+    <% end %>
+  }
+<% end %>
