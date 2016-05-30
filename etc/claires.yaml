@@ -1,0 +1,7 @@
+shutup:
+  type: text
+  text: Shut up Claire
+backtowork:
+  type: image
+  text: Get back to work, Claire
+  image: img/backtowork.jpg
