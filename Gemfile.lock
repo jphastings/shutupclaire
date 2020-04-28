@@ -3,7 +3,7 @@ GEM
   specs:
     foreman (0.80.2)
       thor (~> 0.19.1)
-    puma (3.4.0)
+    puma (3.12.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
